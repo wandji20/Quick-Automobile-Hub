@@ -4,7 +4,7 @@ class CreateCars < ActiveRecord::Migration[6.1]
       t.references :user, null: false, foreign_key: true
       t.string :manufacturer
       t.string :year
-      t.number :mileage
+      t.integer :mileage
       t.string :location
       t.integer :price
       t.references :category, null: false, foreign_key: true
