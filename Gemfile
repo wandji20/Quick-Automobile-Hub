@@ -9,7 +9,6 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 # Devise
 gem 'devise'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
 # Use postgresql as the database for Active Record
@@ -43,7 +42,7 @@ group :development, :test do
   # factory_bot_rails
   gem 'factory_bot_rails'
   # faker
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 end
 
 group :test do
