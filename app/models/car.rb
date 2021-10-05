@@ -3,7 +3,7 @@ class Car < ApplicationRecord
   belongs_to :category
 
   validates :manufacturer, presence: true, length: { in: 3..30 }
-  validates :year, presence: true, length: 4
+  validates :year, presence: true, length: { is: 4}
   validates :mileage, presence: true
   validates :location, presence: true, length: { in: 3..30 }
   validates :price, presence: true

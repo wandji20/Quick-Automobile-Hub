@@ -3,7 +3,7 @@ FactoryBot.define do
     user { nil }
     manufacturer { 'MyString' }
     year { 'MyString' }
-    mileage { '' }
+    mileage { 1000 }
     location { 'MyString' }
     price { 1 }
     category { nil }
