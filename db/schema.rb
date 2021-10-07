@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_05_205931) do
+ActiveRecord::Schema.define(version: 2021_10_07_201718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_10_05_205931) do
     t.string "year"
     t.integer "mileage"
     t.string "location"
+    t.string "type"
     t.integer "price"
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
@@ -36,13 +37,13 @@ ActiveRecord::Schema.define(version: 2021_10_05_205931) do
   end
 
   create_table "hires", force: :cascade do |t|
-    t.bigint "car_id", null: false
-    t.bigint "user_id", null: false
     t.string "status", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["car_id"], name: "index_hires_on_car_id"
-    t.index ["user_id"], name: "index_hires_on_user_id"
+    t.string "hirer_id"
+    t.string "hiree_id"
+    t.index ["hiree_id"], name: "index_hires_on_hiree_id"
+    t.index ["hirer_id"], name: "index_hires_on_hirer_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -56,13 +57,13 @@ ActiveRecord::Schema.define(version: 2021_10_05_205931) do
   end
 
   create_table "sales", force: :cascade do |t|
-    t.bigint "car_id", null: false
-    t.bigint "user_id", null: false
     t.string "status", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["car_id"], name: "index_sales_on_car_id"
-    t.index ["user_id"], name: "index_sales_on_user_id"
+    t.string "seller_id"
+    t.string "buyer_id"
+    t.index ["buyer_id"], name: "index_sales_on_buyer_id"
+    t.index ["seller_id"], name: "index_sales_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,10 +80,6 @@ ActiveRecord::Schema.define(version: 2021_10_05_205931) do
 
   add_foreign_key "cars", "categories"
   add_foreign_key "cars", "users"
-  add_foreign_key "hires", "cars"
-  add_foreign_key "hires", "users"
   add_foreign_key "ratings", "cars"
   add_foreign_key "ratings", "users"
-  add_foreign_key "sales", "cars"
-  add_foreign_key "sales", "users"
 end
