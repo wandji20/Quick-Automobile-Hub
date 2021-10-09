@@ -17,13 +17,14 @@ ActiveRecord::Schema.define(version: 2021_10_07_201718) do
 
   create_table "cars", force: :cascade do |t|
     t.string "manufacturer"
+    t.string "model"
     t.string "year"
     t.integer "mileage"
     t.string "location"
-    t.string "type"
+    t.string "status"
     t.integer "price"
-    t.bigint "user_id", null: false
     t.bigint "category_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_cars_on_category_id"
@@ -40,9 +41,9 @@ ActiveRecord::Schema.define(version: 2021_10_07_201718) do
     t.string "status", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "hirer_id"
-    t.string "hiree_id"
-    t.index ["hiree_id"], name: "index_hires_on_hiree_id"
+    t.integer "hirer_id"
+    t.integer "hired_car_id"
+    t.index ["hired_car_id"], name: "index_hires_on_hired_car_id"
     t.index ["hirer_id"], name: "index_hires_on_hirer_id"
   end
 
@@ -60,10 +61,10 @@ ActiveRecord::Schema.define(version: 2021_10_07_201718) do
     t.string "status", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "seller_id"
-    t.string "buyer_id"
+    t.integer "bought_car_id"
+    t.integer "buyer_id"
+    t.index ["bought_car_id"], name: "index_sales_on_bought_car_id"
     t.index ["buyer_id"], name: "index_sales_on_buyer_id"
-    t.index ["seller_id"], name: "index_sales_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_10_07_201718) do
     t.string "email"
     t.string "telephone"
     t.string "password_digest"
-    t.boolean "verified", default: true
+    t.boolean "verified", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
