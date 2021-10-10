@@ -6,7 +6,6 @@ ruby '2.7.2'
 # rubocop
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4'
 # Use postgresql as the database for Active Record
@@ -25,6 +24,12 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+# Rack Cors
+gem 'rack-cors'
+
+# JWT
+gem 'jwt'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -4,7 +4,7 @@ require 'rails_helper'
 #   describe 'associations' do
 #     # it { should belong_to(:category).class_name('MenuCategory') }
 #   end
-  
+
 #   describe 'validations' do
 #     it 'validates a user' do
 #       # user = create(:user)
@@ -16,4 +16,3 @@ require 'rails_helper'
 #     # it { should validate_uniqueness_of(:user_name) }
 #   end
 # end
-

@@ -6,7 +6,7 @@ FactoryBot.define do
     telephone { Faker::PhoneNumber }
     user_name { Faker::Name.unique }
     verified { true }
-    password { 'MyString'}
-    password_confirmation { 'MyString'}
+    password { 'MyString' }
+    password_confirmation { 'MyString' }
   end
 end
