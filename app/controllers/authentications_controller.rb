@@ -5,7 +5,7 @@ class AuthenticationsController < ApplicationController
     if user&.authenticate(user_params[:password])
       render json: { token: token(user.id), user_name: user.user_name }, status: :created
     else
-      render json: { errors: ['Sorry, incorrect username or password'] }, status: :unprocessable_entity
+      render json: { error: ['Sorry, incorrect username or password'] }, status: :unprocessable_entity
     end
   end
 

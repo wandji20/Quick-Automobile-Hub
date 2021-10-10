@@ -15,10 +15,10 @@ class ApplicationController < ActionController::Base
   end
 
   def client_has_valid_token?
-    !!current_user_id
+    !!current_user
   end
 
-  def current_user_id
+  def current_user
     begin
       token = request.headers['Authorization']
       decoded_array = JWT.decode(token, hmac_secret, true, { algorithm: 'HS256' })
@@ -26,10 +26,10 @@ class ApplicationController < ActionController::Base
     rescue StandardError # JWT::VerificationError
       return nil
     end
-    payload['user_id']
+    User.find(payload['user_id'])
   end
 
   def require_login
-    render json: { error: 'Unauthorized' }, status: :unauthorized unless client_has_valid_token?
+    render json: { error: 'Unauthorized Request' }, status: :unauthorized unless client_has_valid_token?
   end
 end

@@ -13,6 +13,9 @@ class Car < ApplicationRecord
   has_one :sale, foreign_key: :bought_car_id
   has_one :buyer, through: :sale, class_name: 'User'
 
+  scope :hiring_cars, -> { where(status: 'hire')}
+  scope :selling_cars, -> { where(status: 'sale')}
+
   validates :manufacturer, presence: true, length: { in: 3..30 }
   validates :year, presence: true, length: { is: 4 }
   validates :mileage, presence: true
