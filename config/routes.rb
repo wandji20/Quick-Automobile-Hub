@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   put 'profile', to: 'users#update'
   delete 'profile', to: 'users#destroy'
   resources :cars, only: [:create, :show, :update, :destroy]
+  resources :hires, only: [:create, :show, :update, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
