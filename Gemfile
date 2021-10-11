@@ -23,7 +23,13 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+# Rack Cors
+gem 'rack-cors'
+
+# JWT
+gem 'jwt'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -38,6 +44,12 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
   # factory_bot_rails
   gem 'factory_bot_rails'
+  # faker
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
