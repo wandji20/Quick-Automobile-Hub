@@ -22,7 +22,3 @@ class User < ApplicationRecord
 
   validates :user_name, uniqueness: true
 end
-
-# user = User.create(first_name:'Wandji', last_name: 'Bertrand', user_name:'Wanji Auto', email:'wandji@email',password:'111111', password_confirmation:'111111' )
-
-# car = user.cars.new( {manufacturer: "Toyota", year: '2012', mileage: 200000 , location: 'Buea', status: 'hire', price: 11000000, category_id: 1, model: 'Camry'})
