@@ -10,8 +10,8 @@ class Car < ApplicationRecord
   has_many :confirmed_hire_requests, -> { where status: 'accepted' }, class_name: 'Hire', foreign_key: :hired_car_id
   has_many :hirers, through: 'confirmed_hire_requests', source: :hirer
 
-  has_one :sale, foreign_key: :bought_car_id
-  has_one :buyer, through: :sale, class_name: 'User'
+  has_many :sales, foreign_key: :bought_car_id
+  has_many :buyers, through: :sales, source: 'buyer'
 
   scope :hiring_cars, -> { where(status: 'hire') }
   scope :selling_cars, -> { where(status: 'sale') }

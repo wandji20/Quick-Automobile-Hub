@@ -16,9 +16,7 @@ class User < ApplicationRecord
   has_many :declined_cars, through: :declined_car_requests, source: :hired_car
 
   has_many :sales, foreign_key: :buyer_id
-  has_many :bought_cars, through: :sales, class_name: 'Car'
-
-  # has_many :hired_cars, foreign_key: :hirer_id
+  has_many :bought_cars, through: :sales, source: :bought_car
 
   has_secure_password
 
