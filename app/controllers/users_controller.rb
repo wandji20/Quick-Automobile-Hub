@@ -65,7 +65,6 @@ class UsersController < ApplicationController
   def all_cars
     hiring_cars = current_user.cars.hiring_cars.includes(:ratings)
     selling_cars = current_user.cars.selling_cars.includes(:ratings)
-    {selling_cars: selling_cars, hiring_cars: hiring_cars}
+    { selling_cars: selling_cars, hiring_cars: hiring_cars }
   end
-
 end

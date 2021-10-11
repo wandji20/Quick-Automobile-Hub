@@ -13,8 +13,11 @@ class Car < ApplicationRecord
   has_one :sale, foreign_key: :bought_car_id
   has_one :buyer, through: :sale, class_name: 'User'
 
-  scope :hiring_cars, -> { where(status: 'hire')}
-  scope :selling_cars, -> { where(status: 'sale')}
+  scope :hiring_cars, -> { where(status: 'hire') }
+  scope :selling_cars, -> { where(status: 'sale') }
+
+  # accepts_nested_attributes_for :images
+  has_many_attached :images
 
   validates :manufacturer, presence: true, length: { in: 3..30 }
   validates :year, presence: true, length: { is: 4 }
