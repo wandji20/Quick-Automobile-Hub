@@ -51,7 +51,8 @@ class CarsController < ApplicationController
     #   :mileage,
     #   :location,
     #   :status,
-    #   :price
+    #   :price,
+    #   images: []
     # )
     params.permit(
       :id,
