@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'profile', to: 'users#show'
   put 'profile', to: 'users#update'
   delete 'profile', to: 'users#destroy'
+  resources :ratings, only: [:create, :update]
   resources :sales, only: [:create, :show, :update, :destroy]
   resources :cars, only: [:create, :show, :update, :destroy]
   resources :hires, only: [:create, :show, :update, :destroy]
