@@ -33,14 +33,14 @@ class CarsController < ApplicationController
     end
   end
 
-  def destroy
-    @car = current_user.cars.find(car_params[:id])
-    if @car.destroy
-      json_response({ message: 'Car deleted' })
-    else
-      json_response({ error: @car.errors.full_messages })
-    end
-  end
+  # def destroy
+  #   @car = current_user.cars.find(car_params[:id])
+  #   if @car.destroy
+  #     json_response({ message: 'Car deleted' })
+  #   else
+  #     json_response({ error: @car.errors.full_messages })
+  #   end
+  # end
 
   def car_params
     # params.require(:car).permit(
